@@ -1,7 +1,7 @@
 import {React, useState} from 'react'
 
 const MainPage = () => {
-    const [stock, setStock] = useState(false)
+    const [hoverOnButton, setHoverOnButton] = useState(false)
   return (
     <div class="isolate bg-white">
         <main>
@@ -12,18 +12,21 @@ const MainPage = () => {
                         <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl"> Estimates the value of an investment using its expected future cash flows</h1>
                         <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
                         <div class="mt-8 flex gap-x-4 sm:justify-center">
-                        <a href="#" class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">
+                        <a href="#" class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700 my-auto">
                             Get started
                             <span class="text-indigo-200" aria-hidden="true">&rarr;</span>
                         </a>
-                        <a onClick = {() => setStock(!stock)} class="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                            Find Stock
-                            <span class="text-gray-400" aria-hidden="true">&rarr;</span>
-                            
+                        <a class="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                            <div>
+                                <label for="price" class="block text-md font-medium text-gray-700">Find Stock</label>
+                                {hoverOnButton ? <div class="relative mt-1 rounded-md shadow-sm">
+                                    <input type="text" name="price" id="price" class="block w-full rounded-md border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="AAPL"/>
+                                </div> : <></>}
+                            </div>
                         </a>
                         
                         </div>
-                        {stock ? <div> Input the stock you want to find </div> : <></>}
+                        
                     </div>
 
                     <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
